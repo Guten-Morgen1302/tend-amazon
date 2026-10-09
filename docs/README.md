@@ -19,3 +19,5 @@ Read in this order. The Build contract at the top of `plans/PLAN.md` overrides a
 Not created yet: `spike-alexa.md` (T0 output), `FRICTION.md` (T1, root).
 
 Screens: `docs/mockups/` are the design references; `docs/screens/` are real screenshots of the built simulator (`npm run screens`). The build adds a Send button and a "Speak alerts aloud" toggle that the mockups do not show.
+
+`aws-integration-plan.md` is a PLAN for an optional Bedrock integration. It is **not implemented**; the Devpost answer stays "No / N/A" until its checklist is complete.
