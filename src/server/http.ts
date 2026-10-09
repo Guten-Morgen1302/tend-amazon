@@ -53,7 +53,8 @@ export function createTendServer(core: Core, opts: HttpOptions): Server {
 
       const url = new URL(req.url ?? "/", `http://${host}`);
       if (url.pathname === "/health" && req.method === "GET") {
-        return json(res, 200, { status: "ok", name: "tend", version: SERVER_VERSION, protocol: LATEST_PROTOCOL_VERSION, clockMode: core.clock.mode, db: "ok" });
+        const tz = core.person("mom").tz;
+        return json(res, 200, { status: "ok", name: "tend", version: SERVER_VERSION, protocol: LATEST_PROTOCOL_VERSION, clockMode: core.clock.mode, db: "ok", nowText: fmtClock(core.clock.now(), tz), skippedMinutes: core.clock.skippedMinutes() });
       }
       if (!bearerOk(req, opts.token)) return json(res, 401, { error: "Missing or wrong bearer token" });
 

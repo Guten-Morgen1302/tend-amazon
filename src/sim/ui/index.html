@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tend: simulated Alexa+ demo</title>
+  <link rel="stylesheet" href="/tend.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Tend<span>Simulated Alexa+ demo</span></div>
+    <div class="chip" id="chip" aria-live="off">Connecting...</div>
+  </header>
+  <div id="offline" class="offline" role="alert" hidden>Can't reach Tend. Your last saved schedule is shown. <button class="btn secondary" id="retry" type="button">Retry</button></div>
+  <div id="root"></div>
+  <div id="tray" class="tray" hidden>
+    <span>Demo controls</span>
+    <button class="btn secondary" type="button" data-clock="15">+15 min</button>
+    <button class="btn secondary" type="button" data-clock="60">+1 hour</button>
+    <button class="btn secondary" type="button" data-clock="next">Next dose</button>
+    <button class="btn secondary" type="button" data-clock="reset">Reset</button>
+    <span class="spacer"></span>
+    <span>Demo, not a medical device. Synthetic data.</span>
+  </div>
+  <footer id="pagefoot" class="pagefoot" hidden>Demo, not a medical device. Synthetic data.</footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
