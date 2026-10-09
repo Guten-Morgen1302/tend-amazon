@@ -38,6 +38,7 @@ export function openDb(path: string): Db {
 
 export function resetDb(db: Db): void {
   for (const t of ["items", "slots", "escalations", "notifications", "audit_log", "people"]) db.exec(`DELETE FROM ${t};`);
+  db.exec("DELETE FROM sqlite_sequence;"); // so a reset reproduces identical ids
   db.prepare("UPDATE meta SET value='0' WHERE key='schedule_version'").run();
 }
 

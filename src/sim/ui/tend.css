@@ -67,7 +67,7 @@ input, button { font: inherit; accent-color: var(--accent); caret-color: var(--a
 .field { display: grid; gap: var(--s2); margin-top: var(--s5); }
 .field label { font-size: 16px; color: var(--ink-2); }
 .field-row { display: flex; gap: var(--s2); }
-.field input {
+.field-row input {
   flex: 1; min-height: 48px; padding: 0 var(--s3); border: 2px solid var(--ink-2);
   border-radius: var(--radius-ctl); background: #fff; color: var(--ink); font-size: 18px;
 }
@@ -124,7 +124,7 @@ input, button { font: inherit; accent-color: var(--accent); caret-color: var(--a
 
 /* D2-D10 */
 .kitchen .btn.secondary { min-height: 64px; font-size: 20px; }
-.kitchen .field input { min-height: 64px; font-size: 20px; }
+.kitchen .field-row input { min-height: 64px; font-size: 20px; }
 .tray .btn.secondary { min-height: 48px; font-size: 16px; }
 .transcript h2 { font-size: 16px; font-weight: 600; color: var(--ink); }
 .pagefoot { padding: var(--s3) var(--s5); border-top: 1px solid var(--line); background: var(--panel); font-size: 14px; color: var(--ink-2); }
@@ -142,7 +142,7 @@ input, button { font: inherit; accent-color: var(--accent); caret-color: var(--a
 .propose { display: flex; gap: var(--s3); margin: 0 0 var(--s4); }
 .propose .btn { min-height: 48px; font-size: 18px; padding: 0 var(--s5); }
 .toggle { display: flex; align-items: center; gap: var(--s2); font-size: 16px; color: var(--ink-2); }
-.toggle input { width: 20px; height: 20px; }
+.toggle input { flex: none; width: 24px; height: 24px; min-height: 0; margin: 0; }
 .more-line { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; }
 .more-list { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: var(--s2); font-size: 18px; }
 .more-list li { display: flex; justify-content: space-between; align-items: center; gap: var(--s3); }

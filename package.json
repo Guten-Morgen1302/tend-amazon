@@ -17,7 +17,8 @@
     "test:e2e": "playwright test",
     "typecheck": "tsc -p .",
     "schema": "tsx scripts/emit-schema.ts",
-    "conformance": "tsx scripts/conformance.ts"
+    "conformance": "tsx scripts/conformance.ts",
+    "screens": "tsx scripts/screenshots.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.1",

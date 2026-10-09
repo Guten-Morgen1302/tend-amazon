@@ -29,6 +29,7 @@ const fmt12 = (hhmm) => { const [h, m] = hhmm.split(":").map(Number); return `${
 let state = null;
 let transcript = []; // {who, text, error?, card?}
 let lastMode = null;
+let lastSig = null;
 let lastLogged = null; // {item, at}
 let speakOn = true;
 let busyUntil = 0;
@@ -72,7 +73,10 @@ function kitchenPanel() {
     return panel;
   }
   const first = due.items[0];
-  const swap = el("div", reduceMotion ? "" : "swap");
+  const sig = `${mode}|${due.title}|${first.value}`;
+  const animate = !reduceMotion && sig !== lastSig;
+  lastSig = sig;
+  const swap = el("div", animate ? "swap" : "");
   if (mode === "overdue") {
     const st = el("p", "status-overdue"); st.append(icon("clock"), document.createTextNode("Overdue"));
     swap.append(st, el("p", "eyebrow", first.meta ?? ""));
@@ -289,7 +293,7 @@ document.addEventListener("click", async (e) => {
   const v = b.dataset.clock;
   try {
     const r = v === "reset" ? await api("/api/reset", {}) : await api("/api/clock", v === "next" ? { jump_to: "next_slot" } : { advance_minutes: Number(v) });
-    if (v === "reset") { transcript = []; lastMode = null; lastLogged = null; }
+    if (v === "reset") { transcript = []; lastMode = null; lastSig = null; lastLogged = null; }
     applyState(r.state);
   } catch { applyState({ offline: true }); }
 });

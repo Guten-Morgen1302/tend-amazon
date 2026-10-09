@@ -4,6 +4,7 @@ import type { Card } from "../cards.js";
 import { findBanned, GuardrailError } from "../guardrail.js";
 import { fmt12, fmtClock } from "../time.js";
 import { T } from "../templates.js";
+import { randomUUID } from "node:crypto";
 
 export const PERSON_DEFAULT = "mom";
 
@@ -19,13 +20,20 @@ export function fail(message: string) {
 
 /** Runs a tool body, records an audit row, and turns known errors into clean isError results. */
 export function run(core: Core, tool: string, person: string | null, fn: () => ReturnType<typeof ok>) {
+  const started = Date.now();
+  const log = (outcome: string) => {
+    if (process.env.TEND_LOG === "json") console.log(JSON.stringify({ ts: new Date().toISOString(), requestId: randomUUID(), tool, person, durationMs: Date.now() - started, outcome }));
+  };
   try {
     const r = fn();
     core.audit(tool, person, "ok");
+    log("ok");
     return r;
   } catch (e) {
     const msg = e instanceof CoreError || e instanceof GuardrailError ? e.message : "Something went wrong. Please try again.";
-    try { core.audit(tool, person, e instanceof CoreError ? e.code : "error"); } catch { /* audit is best effort */ }
+    const outcome = e instanceof CoreError ? e.code : e instanceof GuardrailError ? "guardrail" : "error";
+    try { core.audit(tool, person, outcome); } catch { /* audit is best effort */ }
+    log(outcome);
     return fail(msg);
   }
 }

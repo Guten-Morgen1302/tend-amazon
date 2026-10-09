@@ -10,25 +10,31 @@ const post = (p: string, d: unknown) => page.request.post(base + p, { data: d })
 
 await post("/api/reset", {});
 await page.goto(`${base}/?view=kitchen`); await page.waitForSelector(".panel .item");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/kitchen.png" });
 await page.locator("#u").fill("I took my morning pills"); await page.locator("#u").press("Enter");
 await page.waitForSelector(".panel .eyebrow >> text=taken");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/kitchen-after-log.png" });
 
 await post("/api/reset", {});
 await post("/api/clock", { advance_minutes: 60 });
 await page.goto(`${base}/?view=demo`); await page.waitForSelector(".status-overdue");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/demo.png", fullPage: true });
 await page.goto(`${base}/?view=kitchen`); await page.waitForSelector(".status-overdue");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/kitchen-overdue.png" });
 
 await post("/api/clock", { advance_minutes: 15 });
 await page.goto(`${base}/?view=demo`); await page.locator("#u").fill("I took my morning pills"); await page.locator("#u").press("Enter");
 await page.waitForSelector(".okline");
 await page.goto(`${base}/?view=care`); await page.waitForSelector(".okline");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/care.png", fullPage: true });
 await page.setViewportSize({ width: 375, height: 900 });
 await page.goto(`${base}/?view=care`); await page.waitForSelector(".okline");
+await page.waitForTimeout(600);
 await page.screenshot({ path: "docs/screens/care-phone.png", fullPage: true });
 await post("/api/reset", {});
 await browser.close();

@@ -167,3 +167,24 @@ describe("time zones and DST", () => {
     expect(mondayOf("2026-10-16")).toBe("2026-10-12");
   });
 });
+
+describe("seed and audit", () => {
+  it("seeding twice yields identical rows (idempotent, reset reproduces the demo state)", () => {
+    const { core, db } = makeCore();
+    const snap = () => JSON.stringify(["slots", "escalations", "notifications", "items", "people"].map((t) => db.prepare(`SELECT * FROM ${t} ORDER BY 1,2,3,4`).all()));
+    const a = snap();
+    core.clock.advance(120); core.whatsDue("mom");
+    (core.clock as SimClock).reset();
+    seedAgain(core);
+    expect(snap()).toBe(a);
+  });
+
+  it("writes an audit row per tool call outcome", () => {
+    const { core, db } = makeCore();
+    core.audit("whats_due", "mom", "ok");
+    expect(count(db, "SELECT COUNT(*) AS n FROM audit_log WHERE tool='whats_due'")).toBe(1);
+  });
+});
+
+import { seedDemo } from "../src/seed/seed.js";
+function seedAgain(core: Core) { seedDemo(core, "Asia/Kolkata"); }

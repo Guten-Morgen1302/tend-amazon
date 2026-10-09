@@ -153,6 +153,19 @@ test.describe("demo script", () => {
     expect(tray!.height).toBeGreaterThanOrEqual(48);
   });
 
+  test("the swap animation plays when the due item changes and not on a plain refresh", async ({ page }) => {
+    await page.goto("/?view=kitchen");
+    await expect(page.locator(".panel .swap")).toHaveCount(1); // first paint animates once
+    await page.waitForTimeout(400);
+    await page.evaluate(() => document.querySelector("#u")!.dispatchEvent(new Event("input"))); // no state change
+    await page.locator("#u").fill("x");
+    await page.locator("#u").press("Enter"); // unknown utterance re-renders without changing the due item
+    await expect(page.locator(".transcript .line").last()).toContainText("I didn't understand");
+    await expect(page.locator(".panel .swap")).toHaveCount(0);
+    await page.getByRole("button", { name: "I took it" }).click();
+    await expect(page.locator(".panel .swap")).toHaveCount(1);
+  });
+
   test("reduced motion: the swap animation is off", async ({ browser }) => {
     const ctx = await browser.newContext({ reducedMotion: "reduce", baseURL: "http://127.0.0.1:3000" });
     const page = await ctx.newPage();
