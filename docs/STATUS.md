@@ -13,13 +13,13 @@
 | T6b design | done | built to `DESIGN.md`; real screenshots in `docs/screens/` compared with `docs/mockups/` |
 | T7a voice, T7b timeline | done | runtime-failure fallback tested; timeline with clock-skipped marker |
 | T8 seed | done | idempotent; reset reproduces identical rows |
-| T9 CI | written, not run | `.github/workflows/ci.yml` runs after the repo is pushed |
+| T9 CI | done | Pushed to https://github.com/Guten-Morgen1302/tend-amazon; Actions green on Ubuntu and Windows, Node 22.13 and 24 (typecheck, tests, conformance, e2e) |
 | T10 docs | done except impact check | README written; one cited statistic (Brown and Bussell 2011, PubMed abstract read directly) |
 
 Tests: 61 unit/integration (vitest) + 13 Playwright e2e + conformance, all passing.
 
 ## Left for the owner
-1. **Create the public GitHub repo and push** (needs the repo URL and your GitHub login). Then check Actions are green on Linux and Windows.
+1. ~~Create the repo and push~~ done. The repo is currently **public** with MIT detected; switch it to private in Settings if you prefer, then share it with the reviewers at submission (see `docs/submission-checklist.md`).
 2. **Record the demo video** (<3:00, public on YouTube) following `docs/demo-script.md`; take the voice shot in Chrome or Edge.
 3. **Open Source mini challenge (T12), optional:** open a docs or example PR to `modelcontextprotocol/typescript-sdk` or the MCP Inspector repo; `FRICTION.md` entries 2, 3, 4 and 6 are real candidates.
 4. **Fill the Devpost form** using `docs/submission-checklist.md`; confirm the live deadline and fields. Product feedback entries come from `FRICTION.md`.
