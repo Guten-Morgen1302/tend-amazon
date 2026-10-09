@@ -5,6 +5,8 @@ It keeps durable care state (schedules, doses, misses), catches a missed dose af
 
 Built for the **Amazon Developer Hackathon 2026, Alexa+ track**. Zero cost: no AWS, no AI model, no paid service, no accounts, no API keys.
 
+![Tend demo: a missed dose, one alert, a late dose resolves it](docs/media/demo.gif)
+
 > **What is real and what is simulated.** Live Alexa+ is not available to hackathon participants, so everything labeled "Simulated Alexa+" is a web app that stands in for it. The MCP server, its state, the miss rule, the idempotent escalation and the card contract are real and run without the simulator. The intent router and schedule parser are deterministic (regular expressions and templates), not an AI. Tend is **not a medical device**, never gives dosing advice, and ships only synthetic demo data.
 
 ## Quick start (about two minutes)

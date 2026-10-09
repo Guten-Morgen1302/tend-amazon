@@ -27,3 +27,5 @@ Tests: 61 unit/integration (vitest) + 13 Playwright e2e + conformance, all passi
 
 ## Demo video (built Oct 9)
 `video/` holds a Remotion project that produces a ~2:05, 1920x1080 demo from real footage of the running app (recorded by `scripts/record-demo.ts`, labeled on screen as an automated run, cut and sped up only), real terminal output, real test counts, an English Gemini TTS voice-over (each line transcribed back and checked) and synthesized music. See `video/README.md` to rebuild. The final `video/out/tend.mp4`, the raw recordings and the clips are git-ignored; upload `tend.mp4` to YouTube yourself (public, English).
+
+Finished files (git-ignored except the two small ones): `video/out/tend.mp4` (2:05, 22 MB), `docs/media/thumbnail.png` and `docs/media/demo.gif` (committed). Upload `tend.mp4` and set the thumbnail on YouTube.
