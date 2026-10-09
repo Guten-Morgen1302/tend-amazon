@@ -1,0 +1,14 @@
+{
+ "lines": [
+  "PASS tools/list returns the 8 tools",
+  "PASS tools/call whats_due Your morning tablet is due at 8:00 AM.",
+  "PASS tools/call weekly_summary Mon: taken, taken. Tue: taken, taken. Wed: taken, taken. Thu",
+  "PASS tools/call list_notifications Mom has not logged her 9:00 PM evening tablet. It has been 6",
+  "PASS tools/call check_misses No new missed doses.",
+  "PASS tools/call parse_schedule Morning tablet, 8:00 AM, every day. Save this schedule?",
+  "PASS tools/call log_dose Logged at 8:02 AM. Next is evening tablet at 9:00 PM.",
+  "PASS tools/call snooze clean isError (not due yet)",
+  "PASS tools/call set_schedule Saved 2 reminders.",
+  "All checks passed."
+ ]
+}

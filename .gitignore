@@ -6,3 +6,8 @@ data/
 test-results/
 playwright-report/
 dist/
+video/node_modules/
+video/out/
+video/public/clips/
+video/raw/
+video/.venv/

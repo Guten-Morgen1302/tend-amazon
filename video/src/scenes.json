@@ -1,0 +1,146 @@
+[
+ {
+  "id": "cold",
+  "d": 6.0,
+  "vo": {
+   "at": 0.3,
+   "max": 5.4,
+   "text": "Did Mom take her pills? Nobody knows. The group chat doesn't."
+  }
+ },
+ {
+  "id": "logo",
+  "d": 4.5,
+  "vo": {
+   "at": 0.4,
+   "max": 3.6,
+   "text": "This is Tend."
+  }
+ },
+ {
+  "id": "prob",
+  "d": 8.0,
+  "vo": {
+   "at": 0.4,
+   "max": 7.2,
+   "text": "About half of patients don't take their medicines as prescribed. An assistant is already in the room. It just can't remember."
+  }
+ },
+ {
+  "id": "arch",
+  "d": 9.0,
+  "vo": {
+   "at": 0.5,
+   "max": 8.2,
+   "text": "Tend is a real MCP server. The Alexa+ display on top is simulated, and says so everywhere."
+  }
+ },
+ {
+  "id": "ask",
+  "d": 6.7,
+  "vo": {
+   "at": 0.4,
+   "max": 6.0,
+   "text": "Ask, and the display calls the server through a real MCP client."
+  }
+ },
+ {
+  "id": "skip",
+  "d": 6.0,
+  "vo": {
+   "at": 0.3,
+   "max": 5.5,
+   "text": "Skip an hour. After sixty minutes of grace, the server sends one escalation."
+  }
+ },
+ {
+  "id": "care",
+  "d": 8.8,
+  "vo": {
+   "at": 0.4,
+   "max": 8.0,
+   "text": "One alert, once per slot, enforced by a database key. The message is a template, so it can't give advice."
+  }
+ },
+ {
+  "id": "conc",
+  "d": 9.0,
+  "vo": {
+   "at": 0.5,
+   "max": 8.2,
+   "text": "Two separate processes hammer the check sixty times. Still exactly one alert."
+  }
+ },
+ {
+  "id": "late",
+  "d": 9.43,
+  "vo": {
+   "at": 0.5,
+   "max": 8.6,
+   "text": "A late dose resolves the alert with a follow-up. No second message."
+  }
+ },
+ {
+  "id": "phone",
+  "d": 10.4,
+  "vo": {
+   "at": 0.5,
+   "max": 9.4,
+   "text": "The caregiver sees the same thing on a phone. The week, the alerts, and a timeline of what happened."
+  }
+ },
+ {
+  "id": "bad",
+  "d": 7.8,
+  "vo": {
+   "at": 0.4,
+   "max": 7.0,
+   "text": "Try a name with an advice word, and Tend refuses to store it. It never gives medical advice."
+  }
+ },
+ {
+  "id": "xss",
+  "d": 5.13,
+  "vo": {
+   "at": 0.3,
+   "max": 3.9,
+   "text": "Markup is refused as well."
+  }
+ },
+ {
+  "id": "good",
+  "d": 6.87,
+  "vo": {
+   "at": 0.3,
+   "max": 6.2,
+   "text": "A normal schedule is proposed first. Nothing saves until you confirm."
+  }
+ },
+ {
+  "id": "term",
+  "d": 10.0,
+  "vo": {
+   "at": 0.6,
+   "max": 9.0,
+   "text": "A standard MCP client, the Inspector, connects, lists all eight tools, and calls each one."
+  }
+ },
+ {
+  "id": "stats",
+  "d": 10.0,
+  "vo": {
+   "at": 0.6,
+   "max": 9.0,
+   "text": "Sixty-one tests. Thirteen browser tests. Green builds on Windows and Linux. Zero dollars. No AI model."
+  }
+ },
+ {
+  "id": "end",
+  "d": 8.0,
+  "vo": {
+   "at": 0.5,
+   "max": 7.4,
+   "text": "Tend. A real MCP server that remembers. Open source, built for the Amazon Developer Hackathon."
+  }
+ }
+]

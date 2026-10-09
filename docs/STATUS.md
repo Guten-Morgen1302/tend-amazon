@@ -24,3 +24,6 @@ Tests: 61 unit/integration (vitest) + 13 Playwright e2e + conformance, all passi
 3. **Open Source mini challenge (T12), optional:** open a docs or example PR to `modelcontextprotocol/typescript-sdk` or the MCP Inspector repo; `FRICTION.md` entries 2, 3, 4 and 6 are real candidates.
 4. **Fill the Devpost form** using `docs/submission-checklist.md`; confirm the live deadline and fields. Product feedback entries come from `FRICTION.md`.
 5. Re-read the README impact paragraph: its statistic came from a PubMed abstract, not the WHO PDF (which was not fetchable).
+
+## Demo video (built Oct 9)
+`video/` holds a Remotion project that produces a ~2:05, 1920x1080 demo from real footage of the running app (recorded by `scripts/record-demo.ts`, labeled on screen as an automated run, cut and sped up only), real terminal output, real test counts, an English Gemini TTS voice-over (each line transcribed back and checked) and synthesized music. See `video/README.md` to rebuild. The final `video/out/tend.mp4`, the raw recordings and the clips are git-ignored; upload `tend.mp4` to YouTube yourself (public, English).
