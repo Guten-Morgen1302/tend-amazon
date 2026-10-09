@@ -11,3 +11,4 @@ video/out/
 video/public/clips/
 video/raw/
 video/.venv/
+__pycache__/
