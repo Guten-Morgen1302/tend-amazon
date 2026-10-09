@@ -1,0 +1,34 @@
+{
+  "name": "tend",
+  "version": "0.1.0",
+  "description": "Tend: a spec-conformant MCP server for care coordination with a simulated Alexa+ display. Zero cost, no AI.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "tsx scripts/start-all.ts",
+    "start:server": "tsx src/server/index.ts",
+    "start:sim": "tsx src/sim/index.ts",
+    "seed": "tsx scripts/seed.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc -p .",
+    "schema": "tsx scripts/emit-schema.ts",
+    "conformance": "tsx scripts/conformance.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^2.10.1",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

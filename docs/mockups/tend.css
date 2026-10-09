@@ -1,0 +1,137 @@
+/* Tend simulator mockup tokens. Source of truth for DESIGN.md (plan DS2, DS22, DS23). */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap");
+
+:root {
+  --font-ui: "Lexend", "IBM Plex Sans", sans-serif;
+  --ground: #F3F6F5;
+  --panel: #FFFFFF;
+  --ink: #14201E;
+  --ink-2: #3E4F4C;
+  --accent: #0B6B61;
+  --attention: #8A4B00;
+  --attention-bg: #FBF1E3;
+  --line: #C9D3D0;
+  --radius-ctl: 4px;
+  --radius-panel: 12px;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--font-ui); font-size: 16px; line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+::selection { background: rgba(11, 107, 97, 0.25); color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+input, button { font: inherit; accent-color: var(--accent); caret-color: var(--accent); }
+
+/* shared top bar */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s3) var(--s5); border-bottom: 1px solid var(--line); background: var(--panel);
+}
+.brand { font-weight: 600; font-size: 20px; letter-spacing: 0; }
+.brand span { font-weight: 400; color: var(--ink-2); margin-left: var(--s3); font-size: 16px; }
+.chip {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  border: 1px solid var(--line); border-radius: 999px; padding: var(--s1) var(--s3);
+  font-size: 14px; color: var(--ink-2); background: var(--ground);
+}
+.icon { width: 20px; height: 20px; flex: none; }
+
+/* kitchen display */
+.kitchen {  display: grid; grid-template-columns: 3fr 2fr; gap: var(--s6); padding: var(--s6) var(--s5) var(--s5); }
+
+.okline { display: flex; align-items: center; gap: var(--s3); background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-panel); padding: var(--s4) var(--s5); font-weight: 600; font-size: 20px; }
+.panel { background: var(--panel); border-radius: var(--radius-panel); padding: var(--s6); }
+.eyebrow { font-size: 18px; color: var(--ink-2); margin: 0 0 var(--s3); }
+.item { font-size: 52px; line-height: 1.15; font-weight: 600; margin: 0; }
+.time { font-size: 36px; line-height: 1.25; margin: var(--s2) 0 var(--s5); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s3);
+  min-height: 72px; padding: 0 var(--s6); border: 0; border-radius: var(--radius-ctl);
+  background: var(--accent); color: #fff; font-weight: 600; font-size: 28px; cursor: pointer;
+}
+.btn.secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); min-height: 48px; font-size: 18px; padding: 0 var(--s4); }
+.status-overdue { display: flex; align-items: center; gap: var(--s3); color: var(--attention); font-weight: 600; font-size: 24px; margin: 0 0 var(--s3); }
+.next-line { margin: var(--s5) 0 0; color: var(--ink-2); font-size: 20px; border-top: 1px solid var(--line); padding-top: var(--s4); }
+.more-line { margin: var(--s4) 0 0; font-size: 20px; color: var(--attention); }
+
+/* transcript */
+.transcript h2 { font-size: 14px; font-weight: 400; color: var(--ink-2); margin: 0 0 var(--s3); }
+.line { margin: 0 0 var(--s4); font-size: 20px; }
+.line b { display: block; font-size: 14px; color: var(--ink-2); font-weight: 400; margin-bottom: 2px; }
+.field { display: grid; gap: var(--s2); margin-top: var(--s5); }
+.field label { font-size: 16px; color: var(--ink-2); }
+.field-row { display: flex; gap: var(--s2); }
+.field input {
+  flex: 1; min-height: 48px; padding: 0 var(--s3); border: 2px solid var(--ink-2);
+  border-radius: var(--radius-ctl); background: #fff; color: var(--ink); font-size: 18px;
+}
+
+/* caregiver */
+.care { padding: var(--s6) var(--s5); display: grid; gap: var(--s6); max-width: 760px; }
+.care h2 { font-size: 20px; margin: 0 0 var(--s3); }
+.statusline { display: flex; align-items: center; gap: var(--s3); background: var(--attention-bg); color: var(--attention); border-radius: var(--radius-panel); padding: var(--s4) var(--s5); font-weight: 600; font-size: 20px; }
+.alerts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.alerts li { padding: var(--s4) 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: var(--s2) var(--s4); }
+.alerts .msg { margin: 0; font-size: 18px; }
+.alerts .when { color: var(--ink-2); font-size: 14px; }
+.alerts .new { font-size: 14px; font-weight: 600; color: var(--accent); }
+.followup { grid-column: 1 / -1; margin: 0; color: var(--ink-2); font-size: 16px; }
+
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.day { padding: var(--s3) var(--s2); border-bottom: 1px solid var(--line); display: grid; gap: var(--s2); justify-items: start; }
+.day + .day { border-left: 1px solid var(--line); padding-left: var(--s3); }
+.day h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.dose { display: flex; align-items: center; gap: var(--s2); font-size: 14px; color: var(--ink-2); }
+.dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+.dot.taken { background: var(--ink); }
+.dot.missed { border: 2px solid var(--attention); }
+.dot.upcoming { border: 2px dashed var(--ink-2); }
+.foot { font-size: 14px; color: var(--ink-2); margin: var(--s2) 0 0; }
+
+.rail { list-style: none; margin: 0; padding: 0 0 0 var(--s5); border-left: 2px solid var(--line); display: grid; gap: var(--s4); }
+.rail li { position: relative; font-size: 18px; }
+.rail li::before { content: ""; position: absolute; left: calc(-1 * var(--s5) - 7px); top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--panel); border: 2px solid var(--ink-2); }
+.rail li.alert::before { border-color: var(--attention); }
+.rail li.done::before { background: var(--ink); border-color: var(--ink); }
+.rail time { color: var(--ink-2); font-size: 14px; display: block; }
+
+/* demo layout */
+.demo { display: grid; grid-template-columns: 3fr 2fr; min-height: 760px; }
+.demo > section { padding: var(--s5); }
+.demo > section + section { border-left: 1px solid var(--line); background: var(--ground); }
+.demo .kitchen { grid-template-columns: 1fr; padding: 0; gap: var(--s5); }
+.demo .care { padding: 0; max-width: none; }
+.tray { display: flex; gap: var(--s3); align-items: center; padding: var(--s3) var(--s5); border-top: 1px solid var(--line); background: var(--panel); font-size: 14px; color: var(--ink-2); }
+.tray .btn.secondary { min-height: 40px; font-size: 14px; }
+.tray .spacer { flex: 1; }
+
+/* phone: week strip becomes a vertical list (DS29), kitchen collapses */
+@media (max-width: 420px) {
+  .topbar { padding: var(--s3) var(--s4); flex-wrap: wrap; gap: var(--s2); }
+  .care { padding: var(--s5) var(--s4); }
+  .week { grid-template-columns: 1fr; }
+  .day { grid-template-columns: 64px 1fr 1fr; align-items: center; padding: var(--s3) 0; }
+  .day + .day { border-left: 0; padding-left: 0; }
+  .alerts li { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) { .kitchen { grid-template-columns: 1fr; } }
+
+/* D2-D10 */
+.kitchen .btn.secondary { min-height: 64px; font-size: 20px; }
+.kitchen .field input { min-height: 64px; font-size: 20px; }
+.tray .btn.secondary { min-height: 48px; font-size: 16px; }
+.transcript h2 { font-size: 16px; font-weight: 600; color: var(--ink); }
+.pagefoot { padding: var(--s3) var(--s5); border-top: 1px solid var(--line); background: var(--panel); font-size: 14px; color: var(--ink-2); }
+.rail li.skip::before { border-style: dashed; }
+.rail li.skip { color: var(--ink-2); }
+@media (max-width: 900px) { .demo { grid-template-columns: 1fr; } .demo > section + section { border-left: 0; border-top: 1px solid var(--line); } }
+/* Note: the @import above is for mockups only. The build self-hosts the Lexend file with its OFL text (T6b). */
+
+.dose { font-size: 16px; }
+.eyebrow { display: flex; align-items: center; gap: var(--s2); }

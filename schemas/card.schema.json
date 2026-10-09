@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "ui": {
+      "type": "string",
+      "enum": [
+        "card",
+        "carousel"
+      ],
+      "description": "card = a single panel, carousel = a row of items such as days"
+    },
+    "layout": {
+      "description": "hint for renderers; a week-strip is a 7-column strip, not a swipe carousel",
+      "type": "string",
+      "enum": [
+        "panel",
+        "week-strip",
+        "list",
+        "timeline"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "plain text fallback, always present"
+    },
+    "items": {
+      "maxItems": 50,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "taken",
+              "missed",
+              "due",
+              "upcoming",
+              "nodata",
+              "overdue"
+            ]
+          },
+          "meta": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "doses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "item": {
+                  "type": "string"
+                },
+                "hhmm": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "taken",
+                    "missed",
+                    "due",
+                    "upcoming",
+                    "nodata",
+                    "overdue"
+                  ]
+                }
+              },
+              "required": [
+                "item",
+                "hhmm",
+                "state"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "actions": {
+      "maxItems": 6,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 40
+          },
+          "tool": {
+            "type": "string"
+          },
+          "args": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "label",
+          "tool"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "done",
+                  "alert",
+                  "plain"
+                ]
+              }
+            },
+            "required": [
+              "time",
+              "label",
+              "kind"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "title",
+        "status",
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "data": {
+      "description": "tool-specific extras such as a schedule proposal version",
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    }
+  },
+  "required": [
+    "ui",
+    "title",
+    "text",
+    "items",
+    "actions"
+  ],
+  "additionalProperties": false
+}
