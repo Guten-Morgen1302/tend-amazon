@@ -4,7 +4,7 @@ import { AskScene, BadScene, CareScene, GoodScene, LateScene, PhoneScene, SkipSc
 import { ColdOpen, Logo, Problem, Arch } from "./intro";
 import { Concurrency, End, Stats, Terminal } from "./outro";
 import { FPS, s } from "./theme";
-import { Thumbnail } from "./thumbnail";
+import { Thumbnail, ThumbnailDevpost } from "./thumbnail";
 import scenes from "./scenes.json";
 
 // Footage scenes last exactly as long as their clip (public/clips, cut by cut_clips.sh). Durations and voice-over
@@ -34,6 +34,7 @@ const Main: React.FC = () => (
 export const Root: React.FC = () => (
   <>
     <Composition id="Tend" component={Main} durationInFrames={TOTAL} fps={FPS} width={1920} height={1080} />
+    <Composition id="ThumbnailDevpost" component={ThumbnailDevpost} durationInFrames={1} fps={FPS} width={1280} height={853} />
     <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={1280} height={720} />
   </>
 );

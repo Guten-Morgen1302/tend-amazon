@@ -25,3 +25,12 @@ export const Thumbnail: React.FC = () => (
     </div>
   </AbsoluteFill>
 );
+
+/** 3:2 version (1280x853) for the Devpost project image slot: the 16:9 art centred on the same background. */
+export const ThumbnailDevpost: React.FC = () => (
+  <AbsoluteFill style={{ background: `linear-gradient(135deg, ${C.bg} 0%, #0f1a1c 60%, #0a2a2a 100%)` }}>
+    <div style={{ position: "absolute", left: 0, top: 66, width: 1280, height: 720 }}>
+      <Thumbnail />
+    </div>
+  </AbsoluteFill>
+);
