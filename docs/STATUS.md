@@ -31,3 +31,9 @@ Tests: 61 unit/integration (vitest) + 13 Playwright e2e + conformance, all passi
 Finished files (git-ignored except the two small ones): `video/out/tend.mp4` (2:05, 22 MB), `docs/media/thumbnail.png` and `docs/media/demo.gif` (committed). Upload `tend.mp4` and set the thumbnail on YouTube.
 
 Demo video is live: https://youtu.be/sSWEdtZ5-rM (linked from the README).
+
+## Hackathon schedule (from the Devpost page, IST)
+- Submissions: Aug 31 10:45 PM to Oct 24 12:30 AM
+- Judging: Oct 27 12:30 AM to Nov 21 1:30 AM
+- Winners announced: Dec 4 1:30 AM
+Keep the repo and the YouTube video public through at least Dec 4. Avoid large changes to `main` during judging.
